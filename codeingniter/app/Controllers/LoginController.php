@@ -19,10 +19,10 @@ class LoginController extends Controller
     }      
 
     public function login(){
-         
-        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));
+        
         $data['user_name']="user_id";
-        $data['password']="password";
+        $data['password']="password";  
+        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));
         $user =  $this->login->where($data); 
         $rows = $this->login->countAllResults();
         $session = session();          

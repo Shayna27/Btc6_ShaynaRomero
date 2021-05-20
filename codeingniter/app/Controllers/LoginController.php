@@ -27,7 +27,6 @@ class LoginController extends Controller
         $rows = $this->login->countAllResults();
         $session = session();          
         if($rows==1){
-            return view('success');
             return view('user_id');
             return view('passowrd');
         }else{

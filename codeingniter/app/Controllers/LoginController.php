@@ -19,18 +19,17 @@ class LoginController extends Controller
     }      
 
     public function login(){
-        
-        $data['user_name']="user_id"
-        $data['password']="password"   
-        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));       
+         
+        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));
+        $data['user_name']="user_id";
+        $data['password']="password";
         $user =  $this->login->where($data); 
         $rows = $this->login->countAllResults();
         $session = session();          
         if($rows==1){
             return view('success');
-            return view('"user_id"');
-            return view('password');
-               
+               echo $user_name;
+               echo $password;   
         }else{
             $session->setFlashdata('msg', 'Invalid User');
             return view('login');

@@ -11,8 +11,10 @@ class LoginController extends Controller
         $this->login = new LoginModel();       
     }
     
-   public function index()    {  
-
+   public function index()    {
+       
+        $data ['user_name']="hola"
+        $data ['password']= "que tal?"
         $session = session();  
         $session->setFlashdata('msg', '');
     return view('login');
@@ -21,8 +23,6 @@ class LoginController extends Controller
     public function login(){
           
         $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password'))); 
-        $data ['user_name']="hola"
-        $data ['password']= "que tal?"
         $user =  $this->login->where($data); 
         $rows = $this->login->countAllResults();
         $session = session();          

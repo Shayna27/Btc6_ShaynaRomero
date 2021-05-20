@@ -21,14 +21,14 @@ class LoginController extends Controller
     public function login(){
           
         $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password'))); 
-        $username = "user_id"
-        $password = "password"
+        $data ['user_name']="hola"
+        $data ['password']= "que tal?"
         $user =  $this->login->where($data); 
         $rows = $this->login->countAllResults();
         $session = session();          
         if($rows==1){
-            return view('user_id');
-            return view('passowrd');
+            return view('user_name');
+            return view('password');
         }else{
             $session->setFlashdata('msg', 'Invalid User');
             return view('login');

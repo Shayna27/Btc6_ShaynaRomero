@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://cerounodigital.com/btc06/shayna/codeingniter/public/LoginController';
+	public $baseURL = 'http://cerounodigital.com/btc06/shayna/codeingniter/public';
 
 	/**
 	 * --------------------------------------------------------------------------

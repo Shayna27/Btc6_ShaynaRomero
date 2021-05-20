@@ -13,8 +13,8 @@ class LoginController extends Controller
     
    public function index()    {
        
-        $data ['user_name']="hola"
-        $data ['password']= "que tal?"
+        $user ['user_name']="hola"
+        $password ['password']= "que tal?"
         $session = session();  
         $session->setFlashdata('msg', '');
     return view('login');

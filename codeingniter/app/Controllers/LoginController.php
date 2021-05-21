@@ -11,7 +11,7 @@ class LoginController extends Controller
         $this->login = new LoginModel();       
     }
     
-  public function index()    {  
+public function index()    {  
 
         $session = session();  
         $session->setFlashdata('msg', '');
@@ -20,12 +20,16 @@ class LoginController extends Controller
 
     public function login(){
           
-        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));       
+        $data = array('user_name'=>$this->request->getVar('user_id'),'password'=>md5($this->request->getVar('password')));
+        $data = array ['user_name']="user_id";
+        $data = array ['password']="password";
         $user =  $this->login->where($data); 
         $rows = $this->login->countAllResults();
         $session = session();          
         if($rows==1){
-            return view('success');
+            return view('success','user_name','password');
+            echo <?php $user_name?,$password>
+
         }else{
             $session->setFlashdata('msg', 'Invalid User');
             return view('login');
